@@ -1,0 +1,85 @@
+{
+  "productName": "VibeShot",
+  "version": "0.1.0",
+  "identifier": "com.vibeshot.app",
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "devPath": "http://localhost:5173",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "VibeShot",
+        "width": 900,
+        "height": 700,
+        "minWidth": 600,
+        "minHeight": 400,
+        "resizable": true,
+        "fullscreen": false,
+        "visible": true,
+        "decorations": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'"
+    },
+    "withGlobalTauri": false
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "globalShortcut": {
+        "all": true
+      },
+      "clipboard": {
+        "readText": true,
+        "writeText": true
+      },
+      "fs": {
+        "all": false,
+        "readDir": ["$APPDATA/vibeshot"],
+        "readFile": ["$APPDATA/vibeshot"],
+        "writeFile": ["$APPDATA/vibeshot"],
+        "createDir": ["$APPDATA/vibeshot"],
+        "removeDir": ["$APPDATA/vibeshot"],
+        "removeFile": ["$APPDATA/vibeshot"]
+      },
+      "window": {
+        "all": false,
+        "create": true,
+        "close": true,
+        "minimize": true,
+        "maximize": true,
+        "unmaximize": true,
+        "show": true,
+        "hide": true,
+        "setResizable": true,
+        "setAlwaysOnTop": true,
+        "setDecorations": true,
+        "setFullscreen": false,
+        "setCursorGrab": true,
+        "setCursorVisible": true,
+        "setIgnoreCursorEvents": true
+      },
+      "dialog": {
+        "all": false,
+        "save": true,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.vibeshot.app",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}
